@@ -202,21 +202,51 @@
     .section-intro { padding-block: clamp(5rem, 10vw, 8rem) 2rem; }
     .section-intro h2 { max-width: 16ch; margin-bottom: 1rem; }
     .section-intro p { color: var(--muted); }
+    .section-intro-row { display: flex; align-items: end; justify-content: space-between; gap: 1.5rem; }
+    .section-intro-row h2 { margin-bottom: 0; }
+    .details-toggle {
+      flex: 0 0 auto;
+      padding: 0.35rem 0;
+      color: var(--email);
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid currentColor;
+      font: 600 0.78rem/1.4 "JetBrains Mono", Consolas, monospace;
+      cursor: pointer;
+    }
+    .details-toggle:focus-visible, summary:focus-visible { outline: 3px solid var(--phone); outline-offset: 4px; }
+    .capability-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; align-items: start; padding-bottom: clamp(5rem, 10vw, 8rem); }
     .capability {
-      display: grid;
-      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-      gap: clamp(2rem, 7vw, 7rem);
-      padding-block: clamp(3rem, 6vw, 5rem);
-      border-top: 1px solid var(--rule);
+      padding: clamp(1.35rem, 3vw, 2rem);
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 0.3rem;
       break-inside: avoid;
     }
-    .capability h2 { max-width: 11ch; margin-bottom: 2rem; }
-    .problem { max-width: 40ch; color: var(--muted); }
-    .label { display: block; margin-bottom: 0.6rem; color: var(--email); }
-    .capability .body > p { max-width: 65ch; }
-    .proof { margin: 1.8rem 0 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
-    .proof li { position: relative; padding: 0.8rem 0 0.8rem 1.35rem; border-bottom: 1px solid var(--rule); }
-    .proof li::before { position: absolute; left: 0; color: var(--phone); content: "+"; font-family: "JetBrains Mono", monospace; font-weight: 600; }
+    .capability h3 { margin-bottom: 0.65rem; }
+    .outcome { margin-bottom: 1rem; color: var(--muted); }
+    details { border-top: 1px solid var(--rule); }
+    summary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding-block: 0.7rem 0.15rem;
+      color: var(--email);
+      font-family: "JetBrains Mono", Consolas, monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "›"; font-size: 1.1rem; line-height: 1; transform: rotate(90deg); transition: transform 180ms ease; }
+    details[open] summary::after { transform: rotate(-90deg); }
+    .detail-list { margin: 0.85rem 0 0; padding-left: 1.1rem; color: var(--muted); font-size: 0.92rem; }
+    .detail-list li + li { margin-top: 0.35rem; }
+    @media (prefers-reduced-motion: no-preference) {
+      details[open] .detail-list { animation: reveal 180ms ease-out; }
+      @keyframes reveal { from { opacity: 0; transform: translateY(-0.25rem); } to { opacity: 1; transform: translateY(0); } }
+    }
     .beyond-band {
       width: 100vw;
       margin-left: calc(50% - 50vw);
@@ -226,15 +256,14 @@
     }
     .beyond-head { max-width: 65ch; margin-bottom: 2.5rem; }
     .beyond-head p { color: var(--muted); }
-    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; align-items: start; }
     .card { padding: clamp(1.35rem, 3vw, 2.2rem); background: var(--paper); border: 1px solid var(--rule); border-radius: 0.3rem; break-inside: avoid; }
     .card h3 { margin-bottom: 1rem; }
     .card p { margin-bottom: 0; color: var(--muted); }
     .principles { padding-block: clamp(5rem, 9vw, 7rem); }
     .principles h2 { margin-bottom: 2rem; }
-    .principle-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
-    .principle-list li { display: grid; grid-template-columns: 2rem 1fr; gap: 1rem; padding-block: 1rem; border-bottom: 1px solid var(--rule); }
-    .principle-list li::before { color: var(--data); content: "//"; font-family: "JetBrains Mono", monospace; font-weight: 600; }
+    .principle-list { display: flex; flex-wrap: wrap; gap: 0.7rem; margin: 0; padding: 0; list-style: none; }
+    .principle-list li { padding: 0.55rem 0.8rem; background: var(--surface); border: 1px solid var(--rule); border-radius: 0.3rem; }
     .month { padding-block: clamp(4rem, 8vw, 7rem); border-top: 1px solid var(--rule); }
     .month h2 { max-width: 15ch; margin-bottom: 2.5rem; }
     .month-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-block: 1px solid var(--rule); }
@@ -257,8 +286,9 @@
       .map-legend { margin-top: 1rem; }
       .station-name { font-size: 15px; }
       .station-note { font-size: 13px; }
-      .capability { grid-template-columns: 1fr; gap: 1.25rem; }
-      .capability h2 { max-width: 14ch; margin-bottom: 1rem; }
+      .section-intro-row { display: block; }
+      .details-toggle { margin-top: 1rem; }
+      .capability-grid { grid-template-columns: 1fr; }
       .cards, .month-grid { grid-template-columns: 1fr; }
       .month-step { border-right: 0; border-bottom: 1px solid var(--rule); }
       .month-step:last-child { border-bottom: 0; }
@@ -297,7 +327,7 @@
   <header class="page hero">
     <p class="eyebrow">AI GTM engineering and sales leadership</p>
     <h1>I build and run a full outbound sales team out of AI agents, and I stay accountable for every email it sends.</h1>
-    <p class="lede">I connect research, tailored outreach, calls, CRM and honest reporting into one working system. The agents do the repetitive work. I set the judgement, gates and commercial direction.</p>
+    <p class="lede">I turn fragmented sales work into one accountable system that creates qualified conversations.</p>
   </header>
 
   <main>
@@ -373,85 +403,81 @@
     <div class="page">
       <section class="section-intro" aria-labelledby="capabilities-title">
         <p class="eyebrow">From list to learning loop</p>
-        <h2 id="capabilities-title">What I can build and run</h2>
-        <p class="measure">These are connected operating capabilities, not a collection of prompts. Each one has a clear owner, a source of truth and a gate before it can affect a prospect or the sales record.</p>
+        <div class="section-intro-row">
+          <h2 id="capabilities-title">What I can build and run</h2>
+          <button class="details-toggle" type="button" aria-expanded="false">Expand all</button>
+        </div>
       </section>
 
-      <article class="capability">
-        <div><h2>Outbound engine</h2><span class="label">The problem it solves</span><p class="problem">Generic lists and generic copy waste good prospects. A quiet data failure can make a bad list look complete.</p></div>
-        <div class="body"><span class="label">What it does</span><p>I turn a broad company universe into a checked, ranked and tailored email programme. The system reads each prospect's public site, scores the company against the real buying shape, finds a current decision-maker and writes from evidence on that firm's own pages. It matches the proof story to the prospect rather than dropping the same logo into every email.</p><ul class="proof"><li>Built a resumable site scraper with controls that fail when the source changes or a run goes suspiciously empty.</li><li>Built AI fit scoring and tested it against known customers and deliberately difficult edge cases.</li><li>Joined company evidence to the right person, with explicit checks that the contact and scraped site are the same firm.</li><li>Rebuilt the sequence into two distinct threads after studying which actual emails produced positive replies.</li></ul></div>
-      </article>
-
-      <article class="capability">
-        <div><h2>Multi-touch plays</h2><span class="label">The problem it solves</span><p class="problem">One channel misses buying signals and repeats the same people. Uncoordinated channels collide, confuse the buyer and destroy attribution.</p></div>
-        <div class="body"><span class="label">What it does</span><p>I design plays around a reason to act, then give each channel a separate job. Email, a physical touch, a personal page, a professional-network touchpoint and a call can reinforce one another without saying the same thing. Every route checks current replies, customers, prior contact and suppressions before it moves.</p><ul class="proof"><li>Built award-based outreach that joined physical postcards, personal landing pages and follow-up into one controlled play.</li><li>Reached the right second person at firms worth another angle, with firm-level stops and duplicate checks explicit and never a second cold email to the same person.</li><li>Built win-back sourcing for churned accounts, new buyers at old accounts and former champions who moved firms.</li><li>Designed professional-network touchpoints that stop on engagement and never collide with the email sequence.</li><li>Built competitor-angle campaigns around a specific switching reason rather than generic comparison claims.</li></ul></div>
-      </article>
-
-      <article class="capability">
-        <div><h2>Phone arm and dialler</h2><span class="label">The problem it solves</span><p class="problem">A caller should not spend the day reconstructing intent from tabs, stale tasks and missing phone records.</p></div>
-        <div class="body"><span class="label">What it does</span><p>I built a CRM-backed calling page for an SDR. It combines email engagement with other qualified sources, orders the work and writes call state back to the system the rest of the team uses. Follow-up email drafts are timed from the last real email, not a misleading contact timestamp.</p><ul class="proof"><li>Fed the call queue from several controlled sources while suppressing replies, customers, bookings and active work.</li><li>Built follow-up drafts that use the full contact history and never assume a stale task proves intent.</li><li>Built an activity tracker from event-level records, with work shown separately from commercial outcomes.</li><li>Added unmistakable stale-data warnings calculated in the viewer's browser, plus live timestamp checks after publishing.</li></ul></div>
-      </article>
-
-      <article class="capability">
-        <div><h2>CRM clean-up and recon</h2><span class="label">The problem it solves</span><p class="problem">Duplicates, broken associations and false customer status make every downstream list less safe.</p></div>
-        <div class="body"><span class="label">What it does</span><p>I make the CRM usable as an operating system, then reconcile it against billing and source records. Duplicate checks run at company level, not only against the person in front of me. Every active deal has both a company and a real person, and positive replies become durable CRM state.</p><ul class="proof"><li>Built company-scoped duplicate checks across open deals, contacts, activity and pipelines.</li><li>Recovered forgotten opportunities by reconstructing firm history instead of trusting one stale deal row.</li><li>Reconciled recurring records against billing truth, including reversals and identity mismatches.</li><li>Made every write produce a dry run, a live precondition check, a read-back and an audit receipt.</li></ul></div>
-      </article>
-
-      <article class="capability">
-        <div><h2>AI agent team and orchestration</h2><span class="label">The problem it solves</span><p class="problem">One giant chat loses context, crosses authority boundaries and makes failures hard to trace.</p></div>
-        <div class="body"><span class="label">What it does</span><p>I run one project-manager chat above specialist role chats for writing, sending, calls, CRM, replies, experiments, reconciliation, professional-network work and knowledge. Each role has a fixed remit, named inputs, owned outputs and a clean handover. I carry decisions between roles, so there is always a human approval point.</p><ul class="proof"><li>Separated copy truth, send truth, CRM truth and analysis so one role cannot quietly rewrite another's work.</li><li>Built handovers that preserve evidence, settled decisions, live state, risks and the exact next action.</li><li>Made the workspace repo the durable memory, so a new session can restart without depending on a transcript.</li><li>Kept prospect-facing sends behind my explicit sign-off, even when every technical check passes.</li></ul></div>
-      </article>
-
-      <article class="capability">
-        <div><h2>Codex and AI tooling with review</h2><span class="label">The problem it solves</span><p class="problem">AI work becomes risky when briefs are broad, failures are quiet and the same model judges its own assumptions.</p></div>
-        <div class="body"><span class="label">What it does</span><p>I use a manager model to break work into bounded briefs for coding workers. Cheap bulk lanes handle repeatable classification and scoring, while stronger review is reserved for judgement and risk. Cross-model pair review challenges both code and analysis before consequential work is accepted.</p><ul class="proof"><li>Built worker briefs with exact ownership, budgets, acceptance checks and no permission to wander.</li><li>Used bulk model lanes for classification while keeping deterministic joins, counts and gates outside the model.</li><li>Applied adversarial pair review, then verified every finding rather than relaying it blindly.</li><li>Turned every correction into a durable fix in the code, the checks or the standing instructions, plus reusable skills and runners that fail loudly.</li></ul></div>
-      </article>
-
-      <article class="capability">
-        <div><h2>Analysis and testing</h2><span class="label">The problem it solves</span><p class="problem">Reply rates and tidy charts can hide weak denominators, broken joins and tiny samples.</p></div>
-        <div class="body"><span class="label">What it does</span><p>I judge a campaign by useful outcomes per person emailed. I show the sample size, the exclusions and what the evidence cannot support. Tests on senders, subject lines and sequence steps are designed so the comparison survives scrutiny.</p><ul class="proof"><li>Measured outcomes per eligible person and separated delivery, reply, positive intent and booked calls.</li><li>Designed controlled tests with recorded assignment, balanced inputs and a stated stopping rule.</li><li>Proved joins can find known records before believing a zero from a report.</li><li>Labelled findings as directional, suggestive or decision-grade according to the evidence.</li><li>Reconstructed touch history to attribute booked calls without awarding credit to whichever channel reported last.</li></ul></div>
-      </article>
-
-      <article class="capability">
-        <div><h2>Deliverability and infrastructure</h2><span class="label">The problem it solves</span><p class="problem">Good copy still fails if sender health, timezones, suppressions or platform state are wrong.</p></div>
-        <div class="body"><span class="label">What it does</span><p>I operate a dedicated mailbox estate on secondary domains, with warm-up, conservative caps and workload-based allocation. Campaigns send inside the recipient's local working window. Before release, I inspect a seed in my own inbox and read back the fields that will actually ship.</p><ul class="proof"><li>Built capacity planning around unsent work, mailbox health and the lowest live platform limit.</li><li>Resolved send windows from recipient evidence and handled restricted timezone settings explicitly.</li><li>Tested visible sender identity, reply path, subjects, thread nesting and body rendering in a real inbox.</li><li>Automatically suppressed unsubscribes, customers, prior contact and firm-level duplicates before load.</li><li>Hosted operational pages and scheduled jobs with freshness warnings, logs and live completion checks.</li></ul></div>
-      </article>
+      <div class="capability-grid">
+        <article class="capability"><h3>Outbound engine</h3><p class="outcome">I create relevant outreach that earns attention from the right buyers.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Find and prioritise companies with genuine buying potential.</li><li>Reach the right people with individually relevant messages.</li><li>Keep quality high from first prospect to final send.</li></ul></details></article>
+        <article class="capability"><h3>Multi-touch plays</h3><p class="outcome">I turn buyer signals into coordinated conversations across channels.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Design connected plays around clear commercial opportunities.</li><li>Give every channel a useful, distinct role.</li><li>Protect the buyer experience across every touchpoint.</li></ul></details></article>
+        <article class="capability"><h3>Phone arm and dialler</h3><p class="outcome">I give callers better conversations and a clear next action.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Put the strongest calling opportunities first.</li><li>Bring useful context into one focused workspace.</li><li>Keep follow-up timely, relevant and accountable.</li></ul></details></article>
+        <article class="capability"><h3>CRM clean-up</h3><p class="outcome">I make the CRM trustworthy enough to run the business.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Resolve unreliable records and broken commercial context.</li><li>Recover opportunities hidden by poor data.</li><li>Leave a dependable view of every active relationship.</li></ul></details></article>
+        <article class="capability"><h3>AI agent team</h3><p class="outcome">I multiply execution without losing ownership, judgement or control.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Build specialist agents around real business responsibilities.</li><li>Keep decisions and accountability with people.</li><li>Make complex work repeatable across fresh sessions.</li></ul></details></article>
+        <article class="capability"><h3>AI tooling with built-in review</h3><p class="outcome">I turn AI speed into dependable commercial work.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Build tools that make failures visible.</li><li>Review consequential work before it reaches customers.</li><li>Turn corrections into lasting system improvements.</li></ul></details></article>
+        <article class="capability"><h3>Analysis and testing</h3><p class="outcome">I show what is working and what deserves investment.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Measure commercial outcomes, not flattering activity.</li><li>Run fair comparisons that support decisions.</li><li>State uncertainty clearly when evidence is limited.</li></ul></details></article>
+        <article class="capability"><h3>Deliverability and infrastructure</h3><p class="outcome">I keep outreach healthy, reliable and ready to scale.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Protect sender health as volume grows.</li><li>Keep operational systems current and observable.</li><li>Catch release problems before prospects see them.</li></ul></details></article>
+      </div>
     </div>
 
     <section class="beyond-band" aria-labelledby="beyond-title">
       <div class="page">
-        <div class="beyond-head"><p class="eyebrow">Beyond outbound</p><h2 id="beyond-title">The same operating discipline travels</h2><p>I use the same approach for strategy, transactions and team development: establish the truth, build the smallest useful surface, keep judgement human and make the next decision easy.</p></div>
+        <div class="beyond-head"><p class="eyebrow">Beyond outbound</p><h2 id="beyond-title">The same discipline travels</h2></div>
         <div class="cards">
-          <article class="card"><h3>Selling a business</h3><p>I built a buyer thesis, screened the market against it and created research packs that made each approach specific. A single call desk held live state, evidence and next actions. Snapshot decks stayed qualitative until an NDA put detailed diligence in the right place.</p></article>
-          <article class="card"><h3>Choosing where a new product goes</h3><p>I assess verticals separately from brainstorming them. The work combines observed user need, current competitor mapping, delivery constraints and a direct answer to who pays. Promising directions move into bounded pilots with explicit evidence that would change the decision.</p></article>
-          <article class="card"><h3>Training and enablement</h3><p>I built internal training sites for sales practice and AI tools. I coach a rep with event-level activity and funnel evidence, separating work from outcomes and system problems from individual ones. I also turned commission into an auditable rules engine with human approval.</p></article>
+          <article class="card"><h3>Selling a business</h3><p>I make a complex sale focused, credible and manageable.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Clarify the strongest buyer story.</li><li>Keep every conversation informed and moving.</li></ul></details></article>
+          <article class="card"><h3>Choosing where a new product goes</h3><p>I turn competing directions into a confident market decision.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Separate promising ideas from commercial evidence.</li><li>Define practical tests before larger commitments.</li></ul></details></article>
+          <article class="card"><h3>Training and enablement</h3><p>I help people improve with clear evidence and useful practice.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Build training people can use independently.</li><li>Coach performance without confusing effort and outcomes.</li></ul></details></article>
         </div>
       </div>
     </section>
 
     <section class="page principles" aria-labelledby="principles-title">
-      <p class="eyebrow">How I work</p><h2 id="principles-title">Simple rules, enforced in the system</h2>
+      <p class="eyebrow">How I work</p><h2 id="principles-title">Five principles</h2>
       <ul class="principle-list">
-        <li>Nothing sends without my sign-off. Why: an external action is irreversible.</li>
-        <li>Every check must prove it can see. Why: a clean zero from the wrong source is still wrong.</li>
-        <li>Judge on booked calls and commercial movement, not reply rate alone. Why: activity is not the outcome.</li>
-        <li>Every mistake becomes a rule the machine follows. Why: remembered lessons disappear when a session changes.</li>
-        <li>Read back live state after every write. Why: a successful command does not prove the system changed.</li>
-        <li>Plain English, one decision at a time. Why: clarity is part of operational control.</li>
+        <li>I own every external action.</li>
+        <li>Commercial outcomes beat activity.</li>
+        <li>Evidence comes before confidence.</li>
+        <li>Every mistake strengthens the system.</li>
+        <li>Clear decisions create clean execution.</li>
       </ul>
     </section>
 
     <section class="page month" aria-labelledby="month-title">
-      <p class="eyebrow">A practical start</p><h2 id="month-title">What the first month could look like with me</h2>
+      <p class="eyebrow">A practical start</p><h2 id="month-title">The first month</h2>
       <div class="month-grid">
-        <article class="month-step"><span class="week">Week 1</span><h3>Inventory and ICP</h3><p>Map the current tools, data, customers, exclusions and sales motion. Turn the founder's judgement into a clear target definition and record what is settled, uncertain and off-limits.</p></article>
-        <article class="month-step"><span class="week">Week 2</span><h3>Data and scoring</h3><p>Build the source, scraping and fit-scoring pipeline. Test it against trusted examples, inspect failures and produce a reviewable company and contact set.</p></article>
-        <article class="month-step"><span class="week">Week 3</span><h3>Copy, QA and seed</h3><p>Write from each prospect's evidence, match the relevant proof story and render the real sequence. Run the identity, suppression and content gates, then inspect a small seed before release.</p></article>
-        <article class="month-step"><span class="week">Week 4</span><h3>Replies, calls and truth</h3><p>Route replies, connect engaged firms to the phone arm, write outcomes into the CRM and publish the first honest report. Use what happened to improve the next audience and message.</p></article>
+        <article class="month-step"><span class="week">Week 1</span><h3>Find the truth</h3><p>Understand the market, sales motion, data and constraints.</p></article>
+        <article class="month-step"><span class="week">Week 2</span><h3>Build the foundation</h3><p>Create the dependable system behind targeting and outreach.</p></article>
+        <article class="month-step"><span class="week">Week 3</span><h3>Prepare the launch</h3><p>Finish the messaging, checks and human review.</p></article>
+        <article class="month-step"><span class="week">Week 4</span><h3>Launch and learn</h3><p>Start conversations, capture outcomes and improve the next cycle.</p></article>
       </div>
     </section>
   </main>
 
-  <footer class="page">This is a first view of the work. The useful conversation starts with the system you have now.</footer>
+  <footer class="page">Good systems make ambitious growth feel calm.</footer>
+  <script>
+    const details = [...document.querySelectorAll('details')];
+    const toggle = document.querySelector('.details-toggle');
+    const syncToggle = () => {
+      const allOpen = details.every(item => item.open);
+      toggle.textContent = allOpen ? 'Collapse all' : 'Expand all';
+      toggle.setAttribute('aria-expanded', String(allOpen));
+    };
+    toggle.addEventListener('click', () => {
+      const shouldOpen = !details.every(item => item.open);
+      details.forEach(item => { item.open = shouldOpen; });
+      syncToggle();
+    });
+    details.forEach(item => item.addEventListener('toggle', syncToggle));
+    let printState = [];
+    addEventListener('beforeprint', () => {
+      printState = details.map(item => item.open);
+      details.forEach(item => { item.open = true; });
+    });
+    addEventListener('afterprint', () => {
+      details.forEach((item, index) => { item.open = printState[index]; });
+      syncToggle();
+    });
+  </script>
 </body>
 </html>
