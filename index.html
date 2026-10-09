@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>What I Can Do</title>
+  <title>AI-run outbound sales system</title>
   <meta name="robots" content="noindex">
-  <meta name="description" content="I build and run accountable AI-assisted sales systems, from prospect research to calls, CRM and reporting.">
+  <meta name="description" content="A practical view of an AI-run outbound sales system, from prospect research to calls, CRM and reporting.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght%4012..96,500;12..96,650&amp;family=JetBrains+Mono:wght%40500;600&amp;family=Literata:opsz,wght%407..72,400;7..72,600&amp;display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www%2Ew3%2Eorg/2000/svg' viewBox='0,0,64,64'%3E%3Crect width='64' height='64' rx='14' fill='teal'/%3E%3Cpath d='M14,21h23a12,12 0,0,1 12,12v10' fill='none' stroke='white' stroke-width='6' stroke-linecap='round'/%3E%3Ccircle cx='14' cy='21' r='6' fill='orange'/%3E%3Ccircle cx='49' cy='45' r='6' fill='purple'/%3E%3C/svg%3E">
@@ -94,7 +94,7 @@
     }
     h2 { font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.04; }
     h3 { font-size: clamp(1.35rem, 2vw, 1.75rem); line-height: 1.12; }
-    .eyebrow, .label, .map-legend, .week {
+    .eyebrow, .label, .map-legend {
       font-family: "JetBrains Mono", Consolas, monospace;
       font-size: 0.75rem;
       font-weight: 600;
@@ -264,14 +264,6 @@
     .principles h2 { margin-bottom: 2rem; }
     .principle-list { display: flex; flex-wrap: wrap; gap: 0.7rem; margin: 0; padding: 0; list-style: none; }
     .principle-list li { padding: 0.55rem 0.8rem; background: var(--surface); border: 1px solid var(--rule); border-radius: 0.3rem; }
-    .month { padding-block: clamp(4rem, 8vw, 7rem); border-top: 1px solid var(--rule); }
-    .month h2 { max-width: 15ch; margin-bottom: 2.5rem; }
-    .month-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-block: 1px solid var(--rule); }
-    .month-step { padding: 1.5rem 1.4rem 2rem; border-right: 1px solid var(--rule); break-inside: avoid; }
-    .month-step:last-child { border-right: 0; }
-    .week { display: block; margin-bottom: 1.5rem; color: var(--phone); }
-    .month-step h3 { font-size: 1.2rem; margin-bottom: 0.65rem; }
-    .month-step p { margin-bottom: 0; color: var(--muted); font-size: 0.95rem; }
     footer { padding-block: 2rem 3rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
@@ -289,9 +281,7 @@
       .section-intro-row { display: block; }
       .details-toggle { margin-top: 1rem; }
       .capability-grid { grid-template-columns: 1fr; }
-      .cards, .month-grid { grid-template-columns: 1fr; }
-      .month-step { border-right: 0; border-bottom: 1px solid var(--rule); }
-      .month-step:last-child { border-bottom: 0; }
+      .cards { grid-template-columns: 1fr; }
     }
 
     @media print {
@@ -318,16 +308,16 @@
       .hero { padding-block: 1cm; }
       .map-band, .beyond-band { width: auto; margin-left: 0; }
       .draw { animation: none !important; stroke-dashoffset: 0; }
-      .capability, .card, .month-step, .map-band { break-inside: avoid; }
+      .capability, .card, .map-band { break-inside: avoid; }
       a { color: inherit; text-decoration: underline; }
     }
   </style>
 </head>
 <body>
   <header class="page hero">
-    <p class="eyebrow">AI GTM engineering and sales leadership</p>
-    <h1>I build and run a full outbound sales team out of AI agents, and I stay accountable for every email it sends.</h1>
-    <p class="lede">I turn fragmented sales work into one accountable system that creates qualified conversations.</p>
+    <p class="eyebrow">The setup</p>
+    <h1>An AI-run outbound sales system, from first research to booked calls</h1>
+    <p class="lede">What the setup and its agents do, end to end, with a person signing off every outward step.</p>
   </header>
 
   <main>
@@ -404,20 +394,20 @@
       <section class="section-intro" aria-labelledby="capabilities-title">
         <p class="eyebrow">From list to learning loop</p>
         <div class="section-intro-row">
-          <h2 id="capabilities-title">What I can build and run</h2>
+          <h2 id="capabilities-title">What the system can run</h2>
           <button class="details-toggle" type="button" aria-expanded="false">Expand all</button>
         </div>
       </section>
 
       <div class="capability-grid">
-        <article class="capability"><h3>Outbound engine</h3><p class="outcome">I create relevant outreach that earns attention from the right buyers.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Find and prioritise companies with genuine buying potential.</li><li>Reach the right people with individually relevant messages.</li><li>Keep quality high from first prospect to final send.</li></ul></details></article>
-        <article class="capability"><h3>Multi-touch plays</h3><p class="outcome">I turn buyer signals into coordinated conversations across channels.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Design connected plays around clear commercial opportunities.</li><li>Give every channel a useful, distinct role.</li><li>Protect the buyer experience across every touchpoint.</li></ul></details></article>
-        <article class="capability"><h3>Phone arm and dialler</h3><p class="outcome">I give callers better conversations and a clear next action.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Put the strongest calling opportunities first.</li><li>Bring useful context into one focused workspace.</li><li>Keep follow-up timely, relevant and accountable.</li></ul></details></article>
-        <article class="capability"><h3>CRM clean-up</h3><p class="outcome">I make the CRM trustworthy enough to run the business.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Resolve unreliable records and broken commercial context.</li><li>Recover opportunities hidden by poor data.</li><li>Leave a dependable view of every active relationship.</li></ul></details></article>
-        <article class="capability"><h3>AI agent team</h3><p class="outcome">I multiply execution without losing ownership, judgement or control.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Build specialist agents around real business responsibilities.</li><li>Keep decisions and accountability with people.</li><li>Make complex work repeatable across fresh sessions.</li></ul></details></article>
-        <article class="capability"><h3>AI tooling with built-in review</h3><p class="outcome">I turn AI speed into dependable commercial work.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Build tools that make failures visible.</li><li>Review consequential work before it reaches customers.</li><li>Turn corrections into lasting system improvements.</li></ul></details></article>
-        <article class="capability"><h3>Analysis and testing</h3><p class="outcome">I show what is working and what deserves investment.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Measure commercial outcomes, not flattering activity.</li><li>Run fair comparisons that support decisions.</li><li>State uncertainty clearly when evidence is limited.</li></ul></details></article>
-        <article class="capability"><h3>Deliverability and infrastructure</h3><p class="outcome">I keep outreach healthy, reliable and ready to scale.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Protect sender health as volume grows.</li><li>Keep operational systems current and observable.</li><li>Catch release problems before prospects see them.</li></ul></details></article>
+        <article class="capability"><h3>Outbound engine</h3><p class="outcome">The engine creates relevant outreach for the right buyers.</p><details><summary>Learn more</summary><ul class="detail-list"><li>The engine finds and prioritises companies with genuine buying potential.</li><li>Agents draft individually relevant messages for the right people.</li><li>Review gates protect quality from first prospect to final send.</li></ul></details></article>
+        <article class="capability"><h3>Multi-touch plays</h3><p class="outcome">The system turns buyer signals into coordinated conversations across channels.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Connected plays focus on clear commercial opportunities.</li><li>Each channel has a useful, distinct role.</li><li>Shared context protects the buyer experience across every touchpoint.</li></ul></details></article>
+        <article class="capability"><h3>Phone arm and dialler</h3><p class="outcome">The phone arm gives callers better conversations and a clear next action.</p><details><summary>Learn more</summary><ul class="detail-list"><li>The strongest calling opportunities come first.</li><li>Useful context appears in one focused workspace.</li><li>Follow-up stays timely, relevant and accountable.</li></ul></details></article>
+        <article class="capability"><h3>CRM clean-up</h3><p class="outcome">The clean-up makes the CRM trustworthy enough to run the business.</p><details><summary>Learn more</summary><ul class="detail-list"><li>The process resolves unreliable records and broken commercial context.</li><li>Checks recover opportunities hidden by poor data.</li><li>The CRM keeps a dependable view of every active relationship.</li></ul></details></article>
+        <article class="capability"><h3>AI agent team</h3><p class="outcome">The agent team multiplies execution without losing ownership, judgement or control.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Specialist agents handle defined business responsibilities.</li><li>Decisions and accountability stay with people.</li><li>Shared instructions make complex work repeatable across fresh sessions.</li></ul></details></article>
+        <article class="capability"><h3>AI tooling with built-in review</h3><p class="outcome">Built-in review turns AI speed into dependable commercial work.</p><details><summary>Learn more</summary><ul class="detail-list"><li>The tools make failures visible.</li><li>A person reviews consequential work before it reaches customers.</li><li>Corrections become lasting system improvements.</li></ul></details></article>
+        <article class="capability"><h3>Analysis and testing</h3><p class="outcome">The analysis shows what is working and what deserves investment.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Reporting measures commercial outcomes, not flattering activity.</li><li>Fair comparisons support decisions.</li><li>Results state uncertainty clearly when evidence is limited.</li></ul></details></article>
+        <article class="capability"><h3>Deliverability and infrastructure</h3><p class="outcome">The infrastructure keeps outreach healthy, reliable and ready to scale.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Controls protect sender health as volume grows.</li><li>Monitoring keeps operational systems current and observable.</li><li>Checks catch release problems before prospects see them.</li></ul></details></article>
       </div>
     </div>
 
@@ -425,36 +415,26 @@
       <div class="page">
         <div class="beyond-head"><p class="eyebrow">Beyond outbound</p><h2 id="beyond-title">The same discipline travels</h2></div>
         <div class="cards">
-          <article class="card"><h3>Selling a business</h3><p>I make a complex sale focused, credible and manageable.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Clarify the strongest buyer story.</li><li>Keep every conversation informed and moving.</li></ul></details></article>
-          <article class="card"><h3>Choosing where a new product goes</h3><p>I turn competing directions into a confident market decision.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Separate promising ideas from commercial evidence.</li><li>Define practical tests before larger commitments.</li></ul></details></article>
-          <article class="card"><h3>Training and enablement</h3><p>I help people improve with clear evidence and useful practice.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Build training people can use independently.</li><li>Coach performance without confusing effort and outcomes.</li></ul></details></article>
+          <article class="card"><h3>Selling a business</h3><p>The process keeps a complex sale focused, credible and manageable.</p><details><summary>Learn more</summary><ul class="detail-list"><li>The work clarifies the strongest buyer story.</li><li>Shared context keeps every conversation informed and moving.</li></ul></details></article>
+          <article class="card"><h3>Choosing where a new product goes</h3><p>The analysis turns competing directions into a confident market decision.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Evidence separates promising ideas from commercial opportunities.</li><li>Practical tests come before larger commitments.</li></ul></details></article>
+          <article class="card"><h3>Training and enablement</h3><p>The enablement system helps people improve through evidence and practice.</p><details><summary>Learn more</summary><ul class="detail-list"><li>Training stays useful without constant guidance.</li><li>Coaching separates effort from outcomes.</li></ul></details></article>
         </div>
       </div>
     </section>
 
     <section class="page principles" aria-labelledby="principles-title">
-      <p class="eyebrow">How I work</p><h2 id="principles-title">Five principles</h2>
+      <p class="eyebrow">How it runs</p><h2 id="principles-title">Five principles</h2>
       <ul class="principle-list">
-        <li>I own every external action.</li>
-        <li>Commercial outcomes beat activity.</li>
+        <li>A person signs off every external action.</li>
+        <li>The system values commercial outcomes over activity.</li>
         <li>Evidence comes before confidence.</li>
-        <li>Every mistake strengthens the system.</li>
+        <li>Every correction strengthens the system.</li>
         <li>Clear decisions create clean execution.</li>
       </ul>
     </section>
-
-    <section class="page month" aria-labelledby="month-title">
-      <p class="eyebrow">A practical start</p><h2 id="month-title">The first month</h2>
-      <div class="month-grid">
-        <article class="month-step"><span class="week">Week 1</span><h3>Find the truth</h3><p>Understand the market, sales motion, data and constraints.</p></article>
-        <article class="month-step"><span class="week">Week 2</span><h3>Build the foundation</h3><p>Create the dependable system behind targeting and outreach.</p></article>
-        <article class="month-step"><span class="week">Week 3</span><h3>Prepare the launch</h3><p>Finish the messaging, checks and human review.</p></article>
-        <article class="month-step"><span class="week">Week 4</span><h3>Launch and learn</h3><p>Start conversations, capture outcomes and improve the next cycle.</p></article>
-      </div>
-    </section>
   </main>
 
-  <footer class="page">Good systems make ambitious growth feel calm.</footer>
+  <footer class="page">One connected system, from research to learning.</footer>
   <script>
     const details = [...document.querySelectorAll('details')];
     const toggle = document.querySelector('.details-toggle');
