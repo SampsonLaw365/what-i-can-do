@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>What I Can Do</title>
+  <meta name="robots" content="noindex">
+  <meta name="description" content="I build and run accountable AI-assisted sales systems, from prospect research to calls, CRM and reporting.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght%4012..96,500;12..96,650&amp;family=JetBrains+Mono:wght%40500;600&amp;family=Literata:opsz,wght%407..72,400;7..72,600&amp;display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www%2Ew3%2Eorg/2000/svg' viewBox='0,0,64,64'%3E%3Crect width='64' height='64' rx='14' fill='teal'/%3E%3Cpath d='M14,21h23a12,12 0,0,1 12,12v10' fill='none' stroke='white' stroke-width='6' stroke-linecap='round'/%3E%3Ccircle cx='14' cy='21' r='6' fill='orange'/%3E%3Ccircle cx='49' cy='45' r='6' fill='purple'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #f4f7f8;
+      --fg: rgb(20 35 38);
+      --muted: #56676b;
+      --rule: #cad5d8;
+      --surface: #eaf0f2;
+      --surface-strong: #dfe8ea;
+      --email: #11656b;
+      --phone: #9a5c00;
+      --data: #7b3e6f;
+      --map-bg: #e6edef;
+      --map-ink: #13262a;
+      --map-muted: #50666b;
+      --paper: #ffffff;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #11191b;
+        --fg: #edf3f3;
+        --muted: #aababc;
+        --rule: rgb(52 69 72);
+        --surface: rgb(24 35 38);
+        --surface-strong: rgb(32 48 52);
+        --email: #62c6c8;
+        --phone: #f2b654;
+        --data: #d39ac8;
+        --map-bg: rgb(23 35 38);
+        --map-ink: #f2f7f7;
+        --map-muted: #afc0c3;
+        --paper: rgb(16 23 25);
+        color-scheme: dark;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #11191b;
+      --fg: #edf3f3;
+      --muted: #aababc;
+      --rule: rgb(52 69 72);
+      --surface: rgb(24 35 38);
+      --surface-strong: rgb(32 48 52);
+      --email: #62c6c8;
+      --phone: #f2b654;
+      --data: #d39ac8;
+      --map-bg: rgb(23 35 38);
+      --map-ink: #f2f7f7;
+      --map-muted: #afc0c3;
+      --paper: rgb(16 23 25);
+      color-scheme: dark;
+    }
+
+    * { box-sizing: border-box; }
+    html { overflow-x: hidden; scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "Literata", Georgia, serif;
+      font-size: clamp(1rem, 0.96rem + 0.18vw, 1.1rem);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    .page {
+      width: min(100%, 1180px);
+      margin-inline: auto;
+      padding-inline: max(1rem, env(safe-area-inset-left));
+    }
+    .measure { max-width: 65ch; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 {
+      font-family: "Bricolage Grotesque", Arial, sans-serif;
+      text-wrap: balance;
+      letter-spacing: -0.03em;
+    }
+    h1 {
+      max-width: 16ch;
+      margin-bottom: 1.5rem;
+      font-size: clamp(2.85rem, 7vw, 6.7rem);
+      line-height: 0.98;
+      font-weight: 650;
+    }
+    h2 { font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.04; }
+    h3 { font-size: clamp(1.35rem, 2vw, 1.75rem); line-height: 1.12; }
+    .eyebrow, .label, .map-legend, .week {
+      font-family: "JetBrains Mono", Consolas, monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .eyebrow { margin-bottom: 1.25rem; color: var(--email); }
+    .hero { padding-block: clamp(5rem, 11vw, 9rem) clamp(4rem, 9vw, 7rem); }
+    .hero .lede {
+      max-width: 58ch;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      line-height: 1.55;
+    }
+    .map-band {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      padding-block: clamp(2.5rem, 5vw, 4.5rem);
+      background: var(--map-bg);
+      border-block: 1px solid var(--rule);
+      overflow: hidden;
+    }
+    .map-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .map-head h2 { margin-bottom: 0; }
+    .map-legend { display: flex; flex-wrap: wrap; gap: 1.2rem; color: var(--map-muted); }
+    .map-key { display: inline-flex; align-items: center; gap: 0.45rem; }
+    .map-key::before { width: 1.8rem; height: 0.28rem; background: currentColor; content: ""; }
+    .map-key.email { color: var(--email); }
+    .map-key.phone { color: var(--phone); }
+    .map-key.data { color: var(--data); }
+    .map { display: block; width: 100%; height: auto; color: var(--map-ink); }
+    .map-mobile { display: none; }
+    .map-stations {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+      gap: 0;
+      margin: 1.5rem 0 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid var(--rule);
+    }
+    .map-station {
+      position: relative;
+      min-width: 0;
+      padding: 1rem 0.85rem 1rem 1.7rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .map-station::before {
+      position: absolute;
+      top: 1.32rem;
+      left: 0.55rem;
+      width: 0.48rem;
+      height: 0.48rem;
+      background: var(--station-colour);
+      border-radius: 50%;
+      content: "";
+    }
+    .map-station.email { --station-colour: var(--email); }
+    .map-station.phone { --station-colour: var(--phone); }
+    .map-station.data { --station-colour: var(--data); }
+    .map-station strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-family: "JetBrains Mono", Consolas, monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .map-station span { display: block; color: var(--map-muted); font-size: 0.82rem; line-height: 1.45; }
+    .rail { fill: none; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    .rail-email { stroke: var(--email); }
+    .rail-phone { stroke: var(--phone); }
+    .rail-data { stroke: var(--data); }
+    .station { fill: var(--map-bg); stroke-width: 6; }
+    .station.email { stroke: var(--email); }
+    .station.phone { stroke: var(--phone); }
+    .station.data { stroke: var(--data); }
+    .station.shared { stroke: var(--map-ink); }
+    .station-name {
+      fill: var(--map-ink);
+      font-family: "JetBrains Mono", Consolas, monospace;
+      font-size: 17px;
+      font-weight: 600;
+    }
+    .station-note {
+      fill: var(--map-muted);
+      font-family: "Literata", Georgia, serif;
+      font-size: 15px;
+    }
+    .draw { stroke-dasharray: 1; stroke-dashoffset: 0; }
+    @keyframes draw-line { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: no-preference) {
+      .draw { animation: draw-line 1.1s ease-out both; }
+      .rail-phone.draw { animation-delay: 0.18s; }
+      .rail-data.draw { animation-delay: 0.36s; }
+    }
+    .section-intro { padding-block: clamp(5rem, 10vw, 8rem) 2rem; }
+    .section-intro h2 { max-width: 16ch; margin-bottom: 1rem; }
+    .section-intro p { color: var(--muted); }
+    .capability {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: clamp(2rem, 7vw, 7rem);
+      padding-block: clamp(3rem, 6vw, 5rem);
+      border-top: 1px solid var(--rule);
+      break-inside: avoid;
+    }
+    .capability h2 { max-width: 11ch; margin-bottom: 2rem; }
+    .problem { max-width: 40ch; color: var(--muted); }
+    .label { display: block; margin-bottom: 0.6rem; color: var(--email); }
+    .capability .body > p { max-width: 65ch; }
+    .proof { margin: 1.8rem 0 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
+    .proof li { position: relative; padding: 0.8rem 0 0.8rem 1.35rem; border-bottom: 1px solid var(--rule); }
+    .proof li::before { position: absolute; left: 0; color: var(--phone); content: "+"; font-family: "JetBrains Mono", monospace; font-weight: 600; }
+    .beyond-band {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      padding-block: clamp(4rem, 8vw, 7rem);
+      background: var(--surface);
+      border-block: 1px solid var(--rule);
+    }
+    .beyond-head { max-width: 65ch; margin-bottom: 2.5rem; }
+    .beyond-head p { color: var(--muted); }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .card { padding: clamp(1.35rem, 3vw, 2.2rem); background: var(--paper); border: 1px solid var(--rule); border-radius: 0.3rem; break-inside: avoid; }
+    .card h3 { margin-bottom: 1rem; }
+    .card p { margin-bottom: 0; color: var(--muted); }
+    .principles { padding-block: clamp(5rem, 9vw, 7rem); }
+    .principles h2 { margin-bottom: 2rem; }
+    .principle-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
+    .principle-list li { display: grid; grid-template-columns: 2rem 1fr; gap: 1rem; padding-block: 1rem; border-bottom: 1px solid var(--rule); }
+    .principle-list li::before { color: var(--data); content: "//"; font-family: "JetBrains Mono", monospace; font-weight: 600; }
+    .month { padding-block: clamp(4rem, 8vw, 7rem); border-top: 1px solid var(--rule); }
+    .month h2 { max-width: 15ch; margin-bottom: 2.5rem; }
+    .month-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-block: 1px solid var(--rule); }
+    .month-step { padding: 1.5rem 1.4rem 2rem; border-right: 1px solid var(--rule); break-inside: avoid; }
+    .month-step:last-child { border-right: 0; }
+    .week { display: block; margin-bottom: 1.5rem; color: var(--phone); }
+    .month-step h3 { font-size: 1.2rem; margin-bottom: 0.65rem; }
+    .month-step p { margin-bottom: 0; color: var(--muted); font-size: 0.95rem; }
+    footer { padding-block: 2rem 3rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+    @media (max-width: 900px) {
+      .map-desktop, .map-stations { display: none; }
+      .map-mobile { display: block; width: 100%; max-width: 420px; margin-inline: auto; }
+    }
+
+    @media (max-width: 700px) {
+      .hero { padding-top: 4rem; }
+      .map-head { display: block; }
+      .map-legend { margin-top: 1rem; }
+      .station-name { font-size: 15px; }
+      .station-note { font-size: 13px; }
+      .capability { grid-template-columns: 1fr; gap: 1.25rem; }
+      .capability h2 { max-width: 14ch; margin-bottom: 1rem; }
+      .cards, .month-grid { grid-template-columns: 1fr; }
+      .month-step { border-right: 0; border-bottom: 1px solid var(--rule); }
+      .month-step:last-child { border-bottom: 0; }
+    }
+
+    @media print {
+      html:root, html:root[data-theme] {
+        --bg: #ffffff;
+        --fg: #111a1c;
+        --muted: #47575a;
+        --rule: #bcc7ca;
+        --surface: #edf2f3;
+        --surface-strong: #e4ebed;
+        --email: #0d5f64;
+        --phone: rgb(133 80 0);
+        --data: #6f3865;
+        --map-bg: #edf2f3;
+        --map-ink: #111a1c;
+        --map-muted: #47575a;
+        --paper: #ffffff;
+        color-scheme: light;
+      }
+      @page { margin: 15mm; }
+      html { scroll-behavior: auto; }
+      body { font-size: 10.5pt; }
+      .page { width: 100%; padding-inline: 0; }
+      .hero { padding-block: 1cm; }
+      .map-band, .beyond-band { width: auto; margin-left: 0; }
+      .draw { animation: none !important; stroke-dashoffset: 0; }
+      .capability, .card, .month-step, .map-band { break-inside: avoid; }
+      a { color: inherit; text-decoration: underline; }
+    }
+  </style>
+</head>
+<body>
+  <header class="page hero">
+    <p class="eyebrow">AI GTM engineering and sales leadership</p>
+    <h1>I build and run a full outbound sales team out of AI agents, and I stay accountable for every email it sends.</h1>
+    <p class="lede">I connect research, tailored outreach, calls, CRM and honest reporting into one working system. The agents do the repetitive work. I set the judgement, gates and commercial direction.</p>
+  </header>
+
+  <main>
+    <section class="map-band" aria-labelledby="machine-title">
+      <div class="page">
+        <div class="map-head">
+          <h2 id="machine-title">The machine</h2>
+          <div class="map-legend" aria-hidden="true">
+            <span class="map-key email">Email</span>
+            <span class="map-key phone">Phone</span>
+            <span class="map-key data">Data</span>
+          </div>
+        </div>
+
+        <svg class="map map-desktop" viewBox="0,0,1540,390" role="img" aria-labelledby="map-title map-desc">
+          <title id="map-title">Outbound sales system transit map</title>
+          <desc id="map-desc">The email line runs from sourcing through replies. The phone line runs from engagement through calls into the CRM. The data line takes CRM reporting back into sourcing.</desc>
+          <path class="rail rail-email draw" pathLength="1" d="M70 126 H970"/>
+          <path class="rail rail-phone draw" pathLength="1" d="M970,126 C1015,126 1015,248 1060,248 H1270"/>
+          <path class="rail rail-data draw" pathLength="1" d="M1270 248 H1440 V332 H70 V126"/>
+          <g transform="translate(70 126)"><circle class="station email" r="11"/><text class="station-name" x="0" y="-28" text-anchor="middle">Sourcing</text></g>
+          <g transform="translate(190 126)"><circle class="station email" r="11"/><text class="station-name" x="0" y="-28" text-anchor="middle">Scraping</text></g>
+          <g transform="translate(310 126)"><circle class="station email" r="11"/><text class="station-name" x="0" y="-28" text-anchor="middle">Scoring</text></g>
+          <g transform="translate(425 126)"><circle class="station email" r="11"/><text class="station-name" x="0" y="-28" text-anchor="middle">Contacts</text></g>
+          <g transform="translate(560 126)"><circle class="station email" r="11"/><text class="station-name" x="0" y="-28" text-anchor="middle">Tailored copy</text></g>
+          <g transform="translate(700 126)"><circle class="station email" r="11"/><text class="station-name" x="0" y="-28" text-anchor="middle">QA and gates</text></g>
+          <g transform="translate(830 126)"><circle class="station email" r="11"/><text class="station-name" x="0" y="-28" text-anchor="middle">Sending</text></g>
+          <g transform="translate(970 126)"><circle class="station shared" r="11"/><text class="station-name" x="0" y="-28" text-anchor="middle">Replies</text></g>
+          <g transform="translate(1060 248)"><circle class="station phone" r="11"/><text class="station-name" x="0" y="-28" text-anchor="middle">Calls</text></g>
+          <g transform="translate(1270 248)"><circle class="station shared" r="11"/><text class="station-name" x="0" y="-28" text-anchor="middle">CRM</text></g>
+          <g transform="translate(1440 332)"><circle class="station data" r="11"/><text class="station-name" x="0" y="-28" text-anchor="middle">Reporting</text></g>
+        </svg>
+
+        <ol class="map-stations" aria-label="Outbound system stations">
+          <li class="map-station email"><strong>Sourcing</strong><span>Build the right universe</span></li>
+          <li class="map-station email"><strong>Scraping</strong><span>Read each public site</span></li>
+          <li class="map-station email"><strong>Scoring</strong><span>Rank fit with evidence</span></li>
+          <li class="map-station email"><strong>Contacts</strong><span>Find the right person</span></li>
+          <li class="map-station email"><strong>Tailored copy</strong><span>Use their own evidence</span></li>
+          <li class="map-station email"><strong>QA and gates</strong><span>Prove every field</span></li>
+          <li class="map-station email"><strong>Sending</strong><span>Release only signed-off work</span></li>
+          <li class="map-station email"><strong>Replies</strong><span>Classify and route intent</span></li>
+          <li class="map-station phone"><strong>Calls</strong><span>Put live leads in front of a caller</span></li>
+          <li class="map-station phone"><strong>CRM</strong><span>Keep one operational truth</span></li>
+          <li class="map-station data"><strong>Reporting</strong><span>Feed outcomes back into targeting</span></li>
+        </ol>
+
+        <svg class="map map-mobile" viewBox="0,0,343,1040" role="img" aria-labelledby="mobile-map-title mobile-map-desc">
+          <title id="mobile-map-title">Outbound sales system transit map</title>
+          <desc id="mobile-map-desc">A vertical map of the email, phone and data stages, ending with reporting that loops back to sourcing.</desc>
+          <path class="rail rail-email draw" pathLength="1" d="M34 45 V640"/>
+          <path class="rail rail-phone draw" pathLength="1" d="M34 640 V810"/>
+          <path class="rail rail-data draw" pathLength="1" d="M34 810 V980 H12 V45 H34"/>
+          <g transform="translate(34 45)"><circle class="station email" r="9"/><text class="station-name" x="24" y="-5">Sourcing</text><text class="station-note" x="24" y="17">Build the right universe</text></g>
+          <g transform="translate(34 130)"><circle class="station email" r="9"/><text class="station-name" x="24" y="-5">Scraping</text><text class="station-note" x="24" y="17">Read each public site</text></g>
+          <g transform="translate(34 215)"><circle class="station email" r="9"/><text class="station-name" x="24" y="-5">Scoring</text><text class="station-note" x="24" y="17">Rank fit with evidence</text></g>
+          <g transform="translate(34 300)"><circle class="station email" r="9"/><text class="station-name" x="24" y="-5">Contacts</text><text class="station-note" x="24" y="17">Find the right person</text></g>
+          <g transform="translate(34 385)"><circle class="station email" r="9"/><text class="station-name" x="24" y="-5">Tailored copy</text><text class="station-note" x="24" y="17">Use their own evidence</text></g>
+          <g transform="translate(34 470)"><circle class="station email" r="9"/><text class="station-name" x="24" y="-5">QA and gates</text><text class="station-note" x="24" y="17">Prove every field</text></g>
+          <g transform="translate(34 555)"><circle class="station email" r="9"/><text class="station-name" x="24" y="-5">Sending</text><text class="station-note" x="24" y="17">Release only signed-off work</text></g>
+          <g transform="translate(34 640)"><circle class="station shared" r="9"/><text class="station-name" x="24" y="-5">Replies</text><text class="station-note" x="24" y="17">Classify and route intent</text></g>
+          <g transform="translate(34 725)"><circle class="station phone" r="9"/><text class="station-name" x="24" y="-5">Calls</text><text class="station-note" x="24" y="17">Put live leads in front of a caller</text></g>
+          <g transform="translate(34 810)"><circle class="station shared" r="9"/><text class="station-name" x="24" y="-5">CRM</text><text class="station-note" x="24" y="17">Keep one operational truth</text></g>
+          <g transform="translate(34 980)"><circle class="station data" r="9"/><text class="station-name" x="24" y="-5">Reporting</text><text class="station-note" x="24" y="17">Feed outcomes back into targeting</text></g>
+        </svg>
+
+        <ol class="sr-only">
+          <li>Sourcing: build the right universe.</li><li>Scraping: read each public site.</li><li>Scoring: rank fit with evidence.</li><li>Contacts: find the right person.</li><li>Tailored copy: use their own evidence.</li><li>QA and gates: prove every field.</li><li>Sending: release only signed-off work.</li><li>Replies: classify and route intent.</li><li>Calls: put live leads in front of a caller.</li><li>CRM: keep one operational truth.</li><li>Reporting: feed outcomes back into targeting.</li>
+        </ol>
+      </div>
+    </section>
+
+    <div class="page">
+      <section class="section-intro" aria-labelledby="capabilities-title">
+        <p class="eyebrow">From list to learning loop</p>
+        <h2 id="capabilities-title">What I can build and run</h2>
+        <p class="measure">These are connected operating capabilities, not a collection of prompts. Each one has a clear owner, a source of truth and a gate before it can affect a prospect or the sales record.</p>
+      </section>
+
+      <article class="capability">
+        <div><h2>Outbound engine</h2><span class="label">The problem it solves</span><p class="problem">Generic lists and generic copy waste good prospects. A quiet data failure can make a bad list look complete.</p></div>
+        <div class="body"><span class="label">What it does</span><p>I turn a broad company universe into a checked, ranked and tailored email programme. The system reads each prospect's public site, scores the company against the real buying shape, finds a current decision-maker and writes from evidence on that firm's own pages. It matches the proof story to the prospect rather than dropping the same logo into every email.</p><ul class="proof"><li>Built a resumable site scraper with controls that fail when the source changes or a run goes suspiciously empty.</li><li>Built AI fit scoring and tested it against known customers and deliberately difficult edge cases.</li><li>Joined company evidence to the right person, with explicit checks that the contact and scraped site are the same firm.</li><li>Rebuilt the sequence into two distinct threads after studying which actual emails produced positive replies.</li></ul></div>
+      </article>
+
+      <article class="capability">
+        <div><h2>Multi-touch plays</h2><span class="label">The problem it solves</span><p class="problem">One channel misses buying signals and repeats the same people. Uncoordinated channels collide, confuse the buyer and destroy attribution.</p></div>
+        <div class="body"><span class="label">What it does</span><p>I design plays around a reason to act, then give each channel a separate job. Email, a physical touch, a personal page, a professional-network touchpoint and a call can reinforce one another without saying the same thing. Every route checks current replies, customers, prior contact and suppressions before it moves.</p><ul class="proof"><li>Built award-based outreach that joined physical postcards, personal landing pages and follow-up into one controlled play.</li><li>Reached the right second person at firms worth another angle, with firm-level stops and duplicate checks explicit and never a second cold email to the same person.</li><li>Built win-back sourcing for churned accounts, new buyers at old accounts and former champions who moved firms.</li><li>Designed professional-network touchpoints that stop on engagement and never collide with the email sequence.</li><li>Built competitor-angle campaigns around a specific switching reason rather than generic comparison claims.</li></ul></div>
+      </article>
+
+      <article class="capability">
+        <div><h2>Phone arm and dialler</h2><span class="label">The problem it solves</span><p class="problem">A caller should not spend the day reconstructing intent from tabs, stale tasks and missing phone records.</p></div>
+        <div class="body"><span class="label">What it does</span><p>I built a CRM-backed calling page for an SDR. It combines email engagement with other qualified sources, orders the work and writes call state back to the system the rest of the team uses. Follow-up email drafts are timed from the last real email, not a misleading contact timestamp.</p><ul class="proof"><li>Fed the call queue from several controlled sources while suppressing replies, customers, bookings and active work.</li><li>Built follow-up drafts that use the full contact history and never assume a stale task proves intent.</li><li>Built an activity tracker from event-level records, with work shown separately from commercial outcomes.</li><li>Added unmistakable stale-data warnings calculated in the viewer's browser, plus live timestamp checks after publishing.</li></ul></div>
+      </article>
+
+      <article class="capability">
+        <div><h2>CRM clean-up and recon</h2><span class="label">The problem it solves</span><p class="problem">Duplicates, broken associations and false customer status make every downstream list less safe.</p></div>
+        <div class="body"><span class="label">What it does</span><p>I make the CRM usable as an operating system, then reconcile it against billing and source records. Duplicate checks run at company level, not only against the person in front of me. Every active deal has both a company and a real person, and positive replies become durable CRM state.</p><ul class="proof"><li>Built company-scoped duplicate checks across open deals, contacts, activity and pipelines.</li><li>Recovered forgotten opportunities by reconstructing firm history instead of trusting one stale deal row.</li><li>Reconciled recurring records against billing truth, including reversals and identity mismatches.</li><li>Made every write produce a dry run, a live precondition check, a read-back and an audit receipt.</li></ul></div>
+      </article>
+
+      <article class="capability">
+        <div><h2>AI agent team and orchestration</h2><span class="label">The problem it solves</span><p class="problem">One giant chat loses context, crosses authority boundaries and makes failures hard to trace.</p></div>
+        <div class="body"><span class="label">What it does</span><p>I run one project-manager chat above specialist role chats for writing, sending, calls, CRM, replies, experiments, reconciliation, professional-network work and knowledge. Each role has a fixed remit, named inputs, owned outputs and a clean handover. I carry decisions between roles, so there is always a human approval point.</p><ul class="proof"><li>Separated copy truth, send truth, CRM truth and analysis so one role cannot quietly rewrite another's work.</li><li>Built handovers that preserve evidence, settled decisions, live state, risks and the exact next action.</li><li>Made the workspace repo the durable memory, so a new session can restart without depending on a transcript.</li><li>Kept prospect-facing sends behind my explicit sign-off, even when every technical check passes.</li></ul></div>
+      </article>
+
+      <article class="capability">
+        <div><h2>Codex and AI tooling with review</h2><span class="label">The problem it solves</span><p class="problem">AI work becomes risky when briefs are broad, failures are quiet and the same model judges its own assumptions.</p></div>
+        <div class="body"><span class="label">What it does</span><p>I use a manager model to break work into bounded briefs for coding workers. Cheap bulk lanes handle repeatable classification and scoring, while stronger review is reserved for judgement and risk. Cross-model pair review challenges both code and analysis before consequential work is accepted.</p><ul class="proof"><li>Built worker briefs with exact ownership, budgets, acceptance checks and no permission to wander.</li><li>Used bulk model lanes for classification while keeping deterministic joins, counts and gates outside the model.</li><li>Applied adversarial pair review, then verified every finding rather than relaying it blindly.</li><li>Turned every correction into a durable fix in the code, the checks or the standing instructions, plus reusable skills and runners that fail loudly.</li></ul></div>
+      </article>
+
+      <article class="capability">
+        <div><h2>Analysis and testing</h2><span class="label">The problem it solves</span><p class="problem">Reply rates and tidy charts can hide weak denominators, broken joins and tiny samples.</p></div>
+        <div class="body"><span class="label">What it does</span><p>I judge a campaign by useful outcomes per person emailed. I show the sample size, the exclusions and what the evidence cannot support. Tests on senders, subject lines and sequence steps are designed so the comparison survives scrutiny.</p><ul class="proof"><li>Measured outcomes per eligible person and separated delivery, reply, positive intent and booked calls.</li><li>Designed controlled tests with recorded assignment, balanced inputs and a stated stopping rule.</li><li>Proved joins can find known records before believing a zero from a report.</li><li>Labelled findings as directional, suggestive or decision-grade according to the evidence.</li><li>Reconstructed touch history to attribute booked calls without awarding credit to whichever channel reported last.</li></ul></div>
+      </article>
+
+      <article class="capability">
+        <div><h2>Deliverability and infrastructure</h2><span class="label">The problem it solves</span><p class="problem">Good copy still fails if sender health, timezones, suppressions or platform state are wrong.</p></div>
+        <div class="body"><span class="label">What it does</span><p>I operate a dedicated mailbox estate on secondary domains, with warm-up, conservative caps and workload-based allocation. Campaigns send inside the recipient's local working window. Before release, I inspect a seed in my own inbox and read back the fields that will actually ship.</p><ul class="proof"><li>Built capacity planning around unsent work, mailbox health and the lowest live platform limit.</li><li>Resolved send windows from recipient evidence and handled restricted timezone settings explicitly.</li><li>Tested visible sender identity, reply path, subjects, thread nesting and body rendering in a real inbox.</li><li>Automatically suppressed unsubscribes, customers, prior contact and firm-level duplicates before load.</li><li>Hosted operational pages and scheduled jobs with freshness warnings, logs and live completion checks.</li></ul></div>
+      </article>
+    </div>
+
+    <section class="beyond-band" aria-labelledby="beyond-title">
+      <div class="page">
+        <div class="beyond-head"><p class="eyebrow">Beyond outbound</p><h2 id="beyond-title">The same operating discipline travels</h2><p>I use the same approach for strategy, transactions and team development: establish the truth, build the smallest useful surface, keep judgement human and make the next decision easy.</p></div>
+        <div class="cards">
+          <article class="card"><h3>Selling a business</h3><p>I built a buyer thesis, screened the market against it and created research packs that made each approach specific. A single call desk held live state, evidence and next actions. Snapshot decks stayed qualitative until an NDA put detailed diligence in the right place.</p></article>
+          <article class="card"><h3>Choosing where a new product goes</h3><p>I assess verticals separately from brainstorming them. The work combines observed user need, current competitor mapping, delivery constraints and a direct answer to who pays. Promising directions move into bounded pilots with explicit evidence that would change the decision.</p></article>
+          <article class="card"><h3>Training and enablement</h3><p>I built internal training sites for sales practice and AI tools. I coach a rep with event-level activity and funnel evidence, separating work from outcomes and system problems from individual ones. I also turned commission into an auditable rules engine with human approval.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page principles" aria-labelledby="principles-title">
+      <p class="eyebrow">How I work</p><h2 id="principles-title">Simple rules, enforced in the system</h2>
+      <ul class="principle-list">
+        <li>Nothing sends without my sign-off. Why: an external action is irreversible.</li>
+        <li>Every check must prove it can see. Why: a clean zero from the wrong source is still wrong.</li>
+        <li>Judge on booked calls and commercial movement, not reply rate alone. Why: activity is not the outcome.</li>
+        <li>Every mistake becomes a rule the machine follows. Why: remembered lessons disappear when a session changes.</li>
+        <li>Read back live state after every write. Why: a successful command does not prove the system changed.</li>
+        <li>Plain English, one decision at a time. Why: clarity is part of operational control.</li>
+      </ul>
+    </section>
+
+    <section class="page month" aria-labelledby="month-title">
+      <p class="eyebrow">A practical start</p><h2 id="month-title">What the first month could look like with me</h2>
+      <div class="month-grid">
+        <article class="month-step"><span class="week">Week 1</span><h3>Inventory and ICP</h3><p>Map the current tools, data, customers, exclusions and sales motion. Turn the founder's judgement into a clear target definition and record what is settled, uncertain and off-limits.</p></article>
+        <article class="month-step"><span class="week">Week 2</span><h3>Data and scoring</h3><p>Build the source, scraping and fit-scoring pipeline. Test it against trusted examples, inspect failures and produce a reviewable company and contact set.</p></article>
+        <article class="month-step"><span class="week">Week 3</span><h3>Copy, QA and seed</h3><p>Write from each prospect's evidence, match the relevant proof story and render the real sequence. Run the identity, suppression and content gates, then inspect a small seed before release.</p></article>
+        <article class="month-step"><span class="week">Week 4</span><h3>Replies, calls and truth</h3><p>Route replies, connect engaged firms to the phone arm, write outcomes into the CRM and publish the first honest report. Use what happened to improve the next audience and message.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page">This is a first view of the work. The useful conversation starts with the system you have now.</footer>
+</body>
+</html>
